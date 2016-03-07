@@ -1,0 +1,9 @@
+{% extends "home1.html" %}
+
+
+{% block title %}Welcome to Next Neighbour{% endblock %}
+{% block head %}Welcome to Django{% endblock %}
+{% block content %}
+    <p>Welcome {{ user.username }} !!!</p>
+    <a href="/logout/">Logout</a>
+{% endblock %}
