@@ -1,0 +1,78 @@
+{% block content %}
+	<html>
+	<style>
+	#table{
+	color:white;
+	background-color:#B0B0B0;
+	margin-top:100px;
+	align:center;
+	text-align:center;
+	border:1px solid;
+	boder-margin-right:300px;
+		}
+	a:hover {
+		color:black;
+		background-color:white;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:black;
+		background-color:white;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:black;
+		background-color:white;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		#header{
+			color:white;
+			line-height:30px;
+			background-color:#880000;
+			width:1000px;
+			padding:5px;
+			text-align:center;
+			}
+		#text {
+		text-align:left;
+		margin-left:10px;
+		}
+		#text1 {
+		text-align:left;
+		margin-left:20px;
+		}
+		#text1 {
+		text-align:left;
+		margin-left:40px;
+		}
+		</style>
+		<div id="header">
+		<h2><em>Friend feed messages</em></h2>
+		</div>
+		<div id="table">
+		<table  border="0" align="center" style="color:#880000;background-color:#B0B0B0">
+			{% if row %}
+			<tr><th>Title</th><th>Message</th><th>PostedBy</th></tr>
+			{% for v in row %}
+					<tr><td>{{v.0}}</td><td>{{v.3}}</td><td>{{v.4}}</td></tr>
+			{% endfor %}
+			</table>
+			{% else %}
+				<h2> no data </h2>
+			{% endif %}
+<h3><font color="black"><a href="/friendthreads/"> goback</a>
+			</div>
+		
+{% endblock %}

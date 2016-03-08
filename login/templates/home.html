@@ -1,9 +1,123 @@
+
 {% extends "home1.html" %}
 
-
-{% block title %}Welcome to Next Neighbour{% endblock %}
-{% block head %}Welcome to Django{% endblock %}
+{% block title %}Heres's your news feed{{user}}{% endblock %}
+{% block head %}Here's your news feed{{user}}{% endblock %}
 {% block content %}
-    <p>Welcome {{ user.username }} !!!</p>
-    <a href="/logout/">Logout</a>
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<title>home page</title>
+			<style>
+			#header {
+			background-color:#880000;
+			color:white;
+			text-align:center;
+			padding:5px;
+					}
+			#feeds {
+			background-color:#B0B0B0;
+			text-align:center;
+			top:100px;
+			width:1000px;
+			padding:3px;
+					}
+			#tag {
+			color:white;
+			text-align:right;
+			padding:5px;
+				}
+		
+			#nav1 {
+			line-height:30px;
+			background-color:#B0B0B0;
+			height:300px;
+			width:200px;
+			float:right;
+			padding:5px
+				}
+			#section {
+			float:left;
+			padding:10px;	 	 
+				}
+			#footer {
+			float:bottom;
+			background-color:#880000;
+			color:white;
+			clear:both;
+			text-align:center;
+			padding:5px;	 	 
+				}
+			a:hover {
+			color:white;
+			background-color:transparent;
+			text-decoration:underline;
+				}
+			
+			a:link {
+			color:white;
+			background-color:none;
+			text-decoration:none;
+				}
+			a:visited {
+			color:white;
+			background-color:#880000;
+			text-decoration: none;
+				}
+			
+			</style>
+		</head>
+		<body>
+
+		<div id="header">
+			<h1><em>Welcome to Next Neighbour {{userid}}</em></h1>
+			<div id="tag">
+				<a href="/friends/" target="content">Friends</a>&nbsp&nbsp
+				<a href="/neighbours/">Neighbours</a>&nbsp&nbsp
+				<a href="/blocks/">Blocks</a>&nbsp&nbsp
+				<a href="/notifications/">Notifications</a>&nbsp&nbsp
+				<a href="/friendrequest/">Friend Request</a>&nbsp
+				<a href="/addnbrlist/">Add Neighbour</a>&nbsp
+
+
+			</div>
+		</div>
+			<div id="feeds">
+				<h3><a href="/friendthreads/" target="content">Friend Feeds</a>&nbsp&nbsp&nbsp&nbsp&nbsp <a href="/blockthreads/" target="content">Block Feeds</a>&nbsp&nbsp&nbsp&nbsp<a href="/neighbourhoodthreads/" target="content">Neighbourhood Feeds</a>&nbsp&nbsp&nbsp&nbsp<a href="/neighbourthreads/" target="content">Neighbour Feeds</a>&nbsp&nbsp&nbsp&nbsp&nbsp<br></h3>
+			</div>
+		<div id="section">
+			
+			{% if row %}
+			<table border="0" style="align:center;margin-left:300px;margin-top:10px;position:absolute;">
+			<tr><td><h3><em> The threads are:</em></h3></td></tr>
+				{% for v in row %}
+				<tr><td>{{v.1}}</td><td><button style="color:#880000;background-color:#B0B0B0" value={{v.0}} onclick="func(this)">View</button></td><td><button style="color:#880000;background-color:#B0B0B0" value={{v.0}} onclick="func1(this)">Reply</button></td></tr>
+					<br>
+				{% endfor %}
+			</table>
+			{% else %}
+				<p> no display</p>
+			{% endif %}
+		</div>
+			<script>
+		function func(objButton)
+		{
+		var x = objButton.value;
+		document.cookie= x;
+		window.location="/msg/" + x;
+		}
+		function func1(objButton)
+		{
+		var x = objButton.value;
+		document.cookie= x;
+		window.location="/reply/" + x;
+		}
+		</script>
+			
+			<a href="/logout/">Logout</a>
+		</div>
+		</head>
+	</body>
+	</html>
 {% endblock %}
+

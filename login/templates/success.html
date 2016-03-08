@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Registration Successful{% endblock %}
+{% block content %}
+		<html>
+		<style>
+		#header {
+			background-color:#880000;
+			color:white;
+			text-align:center;
+			padding:5px
+				}
+		#table {
+		margin-top:115px;
+		width:1260px;
+		height:500px;
+		align:center;
+		top:300px;
+			}
+		
+		a:hover {
+		color:white;
+		background-color:#880000;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:white;
+		background-color:#880000;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:white;
+		background-color:#880000;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		input[type=submit]{
+		margin-top:20px;
+		margin-left:600px;
+		padding:5px 15px;
+		color:white;
+		border:0 none;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		background-color:#880000;
+			}
+		
+		</style>
+		<div id="header">
+			Registration Completed Successfully.
+			<br>
+			<br>
+			Thank you for registering.
+		</div>
+		<br>
+			<a href="/">Login</a> 
+{% endblock %}

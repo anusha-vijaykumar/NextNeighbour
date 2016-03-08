@@ -1,0 +1,89 @@
+{% block content %}
+	<?php
+	session_start()
+	?>
+	<html>
+	<style>
+	#table{
+	color:white;
+	background-color:#B0B0B0;
+	margin-top:100px;
+	align:center;
+	text-align:center;
+	border:1px solid;
+	boder-margin-right:300px;
+		}
+	a:hover {
+		color:black;
+		background-color:white;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:black;
+		background-color:white;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:black;
+		background-color:white;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		#header{
+			color:white;
+			line-height:30px;
+			background-color:#880000;
+			width:1000px;
+			padding:5px;
+			text-align:center;
+			}
+		#text {
+		text-align:left;
+		margin-right:300px;
+		}
+	</style>
+	<p id="p"> </p>
+	<div id="header">
+		<h2><em>All Feeds</em></h2>
+	</div>
+	<p id="p">    </p>
+	<div id="table">
+	{% if row %}
+		{% for v in row %}
+		 {% with i as "0" %}
+		 <p hidden>i = {{v.0}}</p>
+		<div id="text">
+		<p style="text-align:left"><h3><font color="black"><button style="float:right;margin-right:200px" value={{v.0}} onclick="func(this)">{{v.1}}</button></font></h3></p></br>
+		<script>
+		function func(objButton)
+		{
+		var x = objButton.value;
+		document.cookie= x;
+		window.location="/oo/" + x;
+		}
+		
+		</script>
+		</div>
+		{% endwith %}
+		{% endfor %}
+	{% else %}
+		<p> OOPS!! no feeds to show.</p>
+	{% endif %}
+	</div>
+	<script>
+	function myfunc(this.id)
+	{this.id.disabled="true";}
+	</script>
+	
+{% endblock %}

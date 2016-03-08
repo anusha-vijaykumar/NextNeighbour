@@ -1,0 +1,41 @@
+{% block content %}
+	<html>
+	<title>allfeeds</title>
+	<style>
+		#nav {
+			line-height:30px;
+			height:600px;
+			width:500px;
+			float:left;
+			padding:5px;	
+				}
+		#header {
+			background-color:#880000;
+			color:white;
+			text-align:center;
+			padding:5px
+				}
+		a:hover {
+			color:black;
+			fonct-size:500px;
+			background-color:transparent;
+			text-decoration:underline;
+				}
+			
+			a:link {
+			color:black;
+			background-color:none;
+			text-decoration:none;
+				}
+	</style>
+	<div id="header">
+		<h3> Here's are your feeds for today</h3>
+	</div>
+
+		<h3><a href="/allfeed/" target="content">All Feed</a></h3> 
+		<h3><a href="/friendfeed/" target="content" >Friend Feed</a></h3>
+		<h3><a href="/neighbourfeed/" target="content">Neighbour Feed</a></h3>
+		<h3><a href="/hoodfeed/" target="content">NeighbourHood Feed</a></h3>
+		<h3><a href="/blockfeed/" target="content">Block Feed</a></h3>
+	</html>
+{% endblock %}

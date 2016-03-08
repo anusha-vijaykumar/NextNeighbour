@@ -1,0 +1,82 @@
+{% block content %}
+	<html>
+	<style>
+	#table{
+	color:white;
+	background-color:#B0B0B0;
+	margin-top:100px;
+	align:center;
+	text-align:center;
+	border:1px solid;
+	boder-margin-right:300px;
+		}
+	a:hover {
+		color:black;
+		background-color:white;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:black;
+		background-color:white;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:black;
+		background-color:white;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		#header{
+			color:white;
+			line-height:30px;
+			background-color:#880000;
+			width:1000px;
+			padding:5px;
+			text-align:center;
+			}
+		#text {
+		text-align:left;
+		margin-left:10px;
+		}
+		#text1 {
+		text-align:left;
+		margin-left:20px;
+		}
+		#text1 {
+		text-align:left;
+		margin-left:40px;
+		}
+		</style>
+		<div id="header">
+		<h2><em>All feed messages</em></h2>
+		</div>
+		<div id="table">
+	
+			{% if row %}
+			<div id="text">
+			<h2><p><h3><font color="white"><em>Title&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMessage&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPostedBy</h2></font></p>
+			</div>
+				{% for v in row %}
+				<div id="text">
+					<h2><p><h3><font color="black">{{v.0}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{v.3}}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{v.1}}&nbsp&nbsp&nbsp{{v.2}}</h2></font></p>
+			</div>
+				</div>
+			
+				{% endfor %}
+			{% else %}
+				<h2> no data </h2>
+			{% endif %}
+			</div>
+		</html>
+{% endblock %}

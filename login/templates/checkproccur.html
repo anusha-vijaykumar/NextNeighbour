@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Django{% endblock %}
+{% block head %}Welcome to Django{% endblock %}
+{% block content %}
+    <p>Welcome !!!</p>
+
+			<br>
+{% if row %}
+    {% for r in row %}
+        <p>{{ r.0 }}</p>
+		<p>{{ r.1 }}</p>
+		<p>{{ r.2 }}</p>
+    {% endfor %}
+{% else %}
+    <p>There are no athletes. Only computer programmers.</p>
+{% endif %}
+
+			<h2><a href="/accounts/profile">Update Profile</a><br></h2>
+			<!-- <h2><a href="allfeeds" target="content" >Feeds</a><br></h2> -->
+			<!-- <h2><a href="messages" target="content">Messages</a><br></h2> -->
+    <a href="/logout/">Logout</a>
+{% endblock %}

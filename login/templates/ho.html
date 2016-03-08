@@ -1,0 +1,57 @@
+{% extends "home1.html" %}
+{% block content %}
+	<html>
+		<style>
+		#nav {
+			line-height:30px;
+			background-color:#B0B0B0;
+			height:600px;
+			width:500px;
+			float:left;
+			padding:5px;	
+				}
+		#header {
+			background-color:#880000;
+			color:white;
+			text-align:center;
+			padding:5px
+				}
+		a:hover {
+			color:black;
+			background-color:transparent;
+			text-decoration:underline;
+				}
+			
+		a:link {
+			color:black;
+			background-color:none;
+			text-decoration:none;
+				}
+				
+		a:visited {
+			color:black;
+			background-color:none;
+			text-decoration:none;
+				}
+		</style>
+		
+		<div id="header">
+			<h1>Hi {{ user.username }},welcome back!!!</h1>
+		</div>
+		<div id="nav">
+			{% if prfl.photopath %}
+			<img src= "{{ MEDIA_URL }}{{ prfl.photopath }}" width="300" height="150" border="0"></a>
+			{% endif %}
+			<br>
+			<h3><a href="/accounts/profile/" target="content">Update Profile</a><br></h3>
+			<h3><a href="/msgsuccess/" target="content">New Message</a><br></h3>
+			<h3><a href="/viewprofile/" target="content">View Profile</a><br></h3>
+			<h3><a href="/search/" target="content">Search Message</a><br></h3>
+			<h3><a href="/mapview/" target="content">Map View</a><br></h3>
+			<h3><a href="/logout/" target="_top">Logout</a><br></h3>
+			
+		</div>
+		
+		
+	</html>
+{% endblock %}

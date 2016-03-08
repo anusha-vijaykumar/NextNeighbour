@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <form method="post" action=".">{% csrf_token %}
+        <table border="0">
+            <tr><td>{{ form.search }}</td><td><input type="submit" value="Search" /></td></tr>
+        </table>
+        
+   </form>
+    <a href="/homepage/">home</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+	<html>
+	<h2><em>Select Scope of Message</em></h2>
+		<form method="post" action=".">{% csrf_token %}
+		<table border="0">
+			{{form.as_table}}
+		</table>
+		<input  type="submit" value="next"/>
+		</form>
+	</html>
+{% endblock %}

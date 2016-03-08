@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Welcome to Django{% endblock %}
+{% block head %}Welcome to Django{% endblock %}
+{% block content %}
+    <p>Welcome {{ user.username }} !!!</p>
+			{% if prfl.photopath %}
+			<img src= "{{ MEDIA_URL }}{{ prfl.photopath }}" width="200" height="200" border="0"></a>
+			{% endif %}
+			<br>
+			<h2><a href="/accounts/profile">Update Profile</a><br></h2>
+			<!-- <h2><a href="allfeeds" target="content" >Feeds</a><br></h2> -->
+			<!-- <h2><a href="messages" target="content">Messages</a><br></h2> -->
+    <a href="/logout/">Logout</a>
+{% endblock %}

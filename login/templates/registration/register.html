@@ -1,12 +1,72 @@
 {% extends "base.html" %}
 {% block title %}User Registration{% endblock %}
-{% block head %}User Registration{% endblock %}
 {% block content %}
-    <form method="post" action=".">{% csrf_token %}
-        <table border="0">
-            {{ form.as_table }}
-        </table>
-        <input type="submit" value="Register" />
-    </form>
-    <a href="/">Login</a>
+	<html>
+		<style>
+		#header {
+			background-color:#880000;
+			color:white;
+			text-align:center;
+			padding:5px
+				}
+		#table {
+		margin-top:115px;
+		width:1260px;
+		height:500px;
+		align:center;
+		top:300px;
+			}
+		
+		a:hover {
+		color:white;
+		background-color:#880000;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:white;
+		background-color:#880000;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:white;
+		background-color:#880000;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		input[type=submit]{
+		margin-top:20px;
+		margin-left:600px;
+		padding:5px 15px;
+		color:white;
+		border:0 none;
+		-webkit-border-radius:5px;
+		border-radius:5px;
+		background-color:#880000;
+			}
+		
+		</style>
+		<div id="header">
+			<h1>Registration form</h1>
+		</div>
+		<div id="table">
+			<form method="post" action=".">{% csrf_token %}
+				<table border="0" align="center">
+					{{ form.as_table }}
+				</table>
+				<input  type="submit" value="Register"/>
+			</form>
+			<a href="/">Login</a>
+		</div>
+    
 {% endblock %}

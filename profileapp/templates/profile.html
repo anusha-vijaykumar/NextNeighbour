@@ -1,12 +1,109 @@
 {% extends "base.html" %}
 {% block title %}Profile Updation{% endblock %}
-{% block head %}Profile Updation{% endblock %}
+
+{% block head %} 
+
+Welcome {{ username }}
+<br> <br>
+<hr>
+Update your Profile : {% endblock %}
 {% block content %}
-   <form method="post" action=".">{% csrf_token %}
-       <table border="0">
-           {{ form.as_table }}
-       </table>
-       <input type="submit" value="Submit" />
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
+<script>
+function cntrlFields(id) {
+	document.getElementById("id_up-apt").readOnly=id.checked;
+	document.getElementById("id_up-street").readOnly=id.checked;
+	document.getElementById("id_up-city").readOnly=id.checked;
+	document.getElementById("id_up-state").readOnly=id.checked;
+	document.getElementById("id_up-zip").readOnly=id.checked;
+	//document.getElementById("id_up-loc_0").readOnly=!(id.checked);
+	//document.getElementById("id_up-loc_1").readOnly=!(id.checked);	
+}
+</script>
+   <form method="post" action="." enctype="multipart/form-data">{% csrf_token %}
+<table border="0">
+    <tbody>
+    {% if form.errors %}
+        <p>Please select only jpg or png files</p>
+    {% endif %}
+	{{ usern_form.as_table }}
+    {% if alert %}
+   
+	<tr><td>
+        <label id= "{{up_form.firstname.label }}" for="{{ up_form.firstname.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.firstname.label_tag }}</label>
+      </td>
+      <td>{{ up_form.firstname }}</td>
+    </tr>
+	<tr>
+	<td></td><td><font color="red">Please enter your first name</font></td>
+	</tr>
+	{% endif %}
+	{% if not alert %}
+		<tr><td>
+        <label id= "{{up_form.firstname.label }}" for="{{ up_form.firstname.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.firstname.label_tag }}</label>
+      </td>
+      <td>{{ up_form.firstname }}</td>
+    </tr>
+	{% endif %}
+	<tr><td>
+        <label id= "{{up_form.lastname.label }}" for="{{ up_form.lastname.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.lastname.label_tag }}</label>
+      </td>
+      <td>{{ up_form.lastname }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.profle.label }}" for="{{ up_form.profle.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.profle.label_tag }}</label>
+      </td>
+      <td>{{ up_form.profle }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.photopath.label }}" for="{{ up_form.photopath.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.photopath.label_tag }}</label>
+      </td>
+      <td>{{ up_form.photopath }}</td>
+    </tr>
+	
+	<tr><td></td><td><font color="red">Please select only jpg, jpeg or png files</font></td></tr>
+	<tr><td>
+        <label id= "{{up_form.apt.label }}" for="{{ up_form.apt.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.apt.label_tag }}</label>
+      </td>
+      <td>{{ up_form.apt }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.street.label }}" for="{{ up_form.street.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.street.label_tag }}</label>
+      </td>
+      <td>{{ up_form.street }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.city.label }}" for="{{ up_form.city.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.city.label_tag }}</label>
+      </td>
+      <td>{{ up_form.city }}</td>
+	  <td>
+        <label id= "{{up_form.use_map.label }}" for="{{ up_form.use_map.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.use_map.label_tag }}</label>
+      </td>
+      <td>{{ up_form.use_map }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.state.label }}" for="{{ up_form.state.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.state.label_tag }}</label>
+      </td>
+      <td>{{ up_form.state }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.zip.label }}" for="{{ up_form.zip.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.zip.label_tag }}</label>
+      </td>
+      <td>{{ up_form.zip }}</td>
+    </tr>
+	<tr><td>
+        <label id= "{{up_form.loc.label }}" for="{{ up_form.loc.label }}" style="display:inline-block;vertical-align:middle">{{ up_form.loc.label_tag }}</label>
+      </td>
+      <td>{{ up_form.loc }}</td>
+    </tr>
+			{{ up_form.media}}
+    </tbody>	
+</table>
+  
+       <input type="submit" value="Update" />
    </form>
-   <a href="/">Login</a>
+   <a href="/home/">Home</a
+   </body>
 {% endblock %}

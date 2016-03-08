@@ -1,0 +1,81 @@
+{% block content %}
+	<html>
+	<style>
+	#table{
+	color:white;
+	background-color:#B0B0B0;
+	margin-top:100px;
+	align:center;
+	text-align:center;
+	border:1px solid;
+	boder-margin-right:300px;
+		}
+	a:hover {
+		color:black;
+		background-color:white;
+		text-decoration:underline;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+			
+		a:link {
+		color:black;
+		background-color:white;
+		text-decoration:none;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		a:visited {
+		color:black;
+		background-color:white;
+		-webkit-border-radius:10px;
+		padding:5px 15px;
+		border:20px;
+		border-radius:10px;
+			}
+		#header{
+			color:white;
+			line-height:30px;
+			background-color:#880000;
+			width:1000px;
+			padding:5px;
+			text-align:center;
+			}
+			#text{
+	margin-left:100px;}
+	#button{
+	margin-left:200px;}
+	</style>
+	<div id="header">
+		<h2><em>Blocks</em></h2>
+	</div>
+	<p id="p">    </p>
+	<div id="table">
+{% if row %}
+<table border="0" cellspacing = "10" >
+		{% for v in row %} 
+		<div id="text">
+	<tr><td hidden >{{v.bid}}</td><td>{{v.blkdesc}}</td><td>{{ v.nec }}</td><td>{{ v.swc }}</td><td><button  style = "float:right" value={{v.bid}} onclick="func(this)">Send Request</button></td></tr>
+</div>
+
+	{% endfor %}
+	</table>
+	{% else %}
+		<p> no display</p>
+	{% endif %}
+		</div>
+		
+	<h3><font color="black"><a href="/homepage/">goback</a>
+
+	<script>
+	function func(objButton){
+	var x = objButton.value;
+		document.cookie= x;
+		window.location="/sendblkreq/" + x;}
+	</script>
+	
+{% endblock %}
